@@ -50,7 +50,7 @@ class BookingController extends Controller
         return view('pages.booking.passenger-details', compact('transaction', 'flight', 'tier'));
     }
 
-    public function savePassengerDetails(StorePassengerDetailRequest $request, $flightNumber)
+    public function savePassengerDetails(Request $request, $flightNumber)
     {
         $this->transactionRepository->saveTransactionDataToSession($request->all());
         return redirect()->route('booking.checkout', ['flightNumber' => $flightNumber]);
@@ -62,7 +62,7 @@ class BookingController extends Controller
         $flight = $this->flightRepository->getFlightByFlightNumber($flightNumber);
         $tier = $flight->classes->find($transaction['flight_class_id']);
 
-        return view('pages.booking.passenger-details', compact('transaction', 'flight', 'tier'));
+        return view('pages.booking.checkout', compact('transaction', 'flight', 'tier'));
     }
 
     public function checkBooking()
