@@ -35,6 +35,7 @@ class BookingController extends Controller
     }
 
     public function confirmSeat(Request $request, $flightNumber){
+        dd($request->all());
         $this->transactionRepository->saveTransactionDataToSession($request->all());
     }
 
