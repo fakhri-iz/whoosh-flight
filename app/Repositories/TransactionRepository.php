@@ -32,7 +32,7 @@ class TransactionRepository implements TransactionRepositoryInterface
         $data['number_of_passengers'] = $this->countPassengers($data['passengers']);
 
         // Hitung subtotal dan grand total awal
-        $data['subtotal'] = $this->calculateSubtotal($data['flight_class_id'], $data['number_of_passenger']);
+        $data['subtotal'] = $this->calculateSubtotal($data['flight_class_id'], $data['number_of_passengers']);
         $data['grandtotal'] = $data['subtotal'];
 
         // Terapkan promo jika ada
